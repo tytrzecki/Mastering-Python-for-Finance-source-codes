@@ -16,7 +16,7 @@ def bond_ytm(price, par, T, coup, freq=2, guess=0.05):
     dt = [(i+1)/freq for i in range(int(periods))]
     ytm_func = lambda(y): \
         sum([coupon/(1+y/freq)**(freq*t) for t in dt]) + \
-        par/(1+y/freq)**(freq*t) - price
+        par/(1+y/freq)**(freq*T) - price
         
     return optimize.newton(ytm_func, guess)
 
